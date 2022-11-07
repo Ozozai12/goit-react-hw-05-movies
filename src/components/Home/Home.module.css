@@ -1,0 +1,12 @@
+.trends:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.trendsItem {
+  text-decoration: none;
+  color: black;
+}
+
+.trendsItem:hover {
+  color: tomato;
+}

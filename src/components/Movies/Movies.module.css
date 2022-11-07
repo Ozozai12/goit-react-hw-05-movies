@@ -1,0 +1,18 @@
+.searchButton {
+  margin-left: 15px;
+  background-color: tomato;
+  border-radius: 4px;
+}
+
+.movies:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.moviesItem {
+  text-decoration: none;
+  color: black;
+}
+
+.moviesItem:hover {
+  color: tomato;
+}

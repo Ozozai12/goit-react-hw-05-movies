@@ -1,6 +1,11 @@
 Layout
-    MovieId
     Home
         Trends
+            MovieId
+                Cast
+                Reviews
     Movies
         Search
+            MovieId
+                Cast
+                Reviews

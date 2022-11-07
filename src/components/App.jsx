@@ -4,7 +4,10 @@ import { Movies } from './Movies/Movies';
 import { Home } from './Home/Home';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { MovieItem } from './MovieItem';
+import { MovieItem } from './MovieItem/MovieItem';
+import { CastInfo } from './CastInfo/CastInfo';
+import { ReviewInfo } from './ReviewInfo/ReviewInfo';
+import css from './App.module.css';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
@@ -25,12 +28,15 @@ export const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className={css.section}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home trends={trends} />} />
+          <Route index element={<Home trends={trends} />} />
           <Route path="movies" element={<Movies />} />
-          <Route path="movies/:movieId" element={<MovieItem />} />
+          <Route path="movies/:movieId" element={<MovieItem />}>
+            <Route index path="cast" element={<CastInfo />} />
+            <Route index path="reviews" element={<ReviewInfo />} />
+          </Route>
         </Route>
       </Routes>
     </div>

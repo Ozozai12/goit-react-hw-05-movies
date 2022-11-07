@@ -1,0 +1,23 @@
+.backLink {
+  text-decoration: none;
+}
+
+.backText {
+  padding: 10px;
+  outline: 1px solid tomato;
+  border-radius: 5px;
+}
+
+.backText:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.poster {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.overview {
+  width: 500px;
+}
