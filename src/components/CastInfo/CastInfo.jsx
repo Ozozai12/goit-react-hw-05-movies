@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './CastInfo.module.css';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
@@ -25,12 +26,13 @@ export const CastInfo = () => {
     return;
   }
 
-  return (
+  return credits.length > 0 ? (
     <ul>
       {credits.map(credit => {
         return (
-          <li key={credit.id}>
+          <li key={credit.id} className={css.castItem}>
             <img
+              width="150"
               src={
                 credit.profile_path
                   ? `https://image.tmdb.org/t/p/w500${credit.profile_path}`
@@ -38,13 +40,15 @@ export const CastInfo = () => {
               }
               alt={credit.name || credit.original_name}
             />
-            <p>
+            <span className={css.castName}>
               <b>{credit.name || credit.original_name}</b>
-            </p>
-            <p>Character: {credit.character}</p>
+            </span>
+            <span className={css.castChar}>Character: {credit.character}</span>
           </li>
         );
       })}
     </ul>
+  ) : (
+    <p>There are no information about cast.</p>
   );
 };

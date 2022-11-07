@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './ReviewInfo.module.css';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
@@ -29,9 +30,9 @@ export const ReviewInfo = () => {
     <ul>
       {reviews.map(review => {
         return (
-          <li key={review.id}>
+          <li key={review.id} className={css.reviewItem}>
             <p>{review.author}</p>
-            <p>{review.content}</p>
+            <p>"{review.content}"</p>
           </li>
         );
       })}

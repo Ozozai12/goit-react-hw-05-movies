@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import css from './MovieItem.module.css';
+import { StyledLink } from './MovieItem.styled';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
@@ -38,35 +39,49 @@ export const MovieItem = () => {
         <Link to={backLink} className={css.backLink}>
           <span className={css.backText}>Go back</span>
         </Link>
-
-        <img
-          src={
-            poster_path
-              ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : 'https://wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg'
-          }
-          alt={title || name}
-          className={css.poster}
-        />
-        <h2>{title || name}</h2>
-        <p>User Score: {Math.round(vote_average * 10)}%</p>
-        <h3>Overview</h3>
-        <p className={css.overview}>{overview}</p>
-        <h4>Genres</h4>
-        <p>{getGenres()}</p>
-        <h5>Additional information</h5>
-        <ul>
-          <li>
-            <Link to="cast" state={location.state}>
-              Cast
-            </Link>
-          </li>
-          <li>
-            <Link to="reviews" state={location.state}>
-              Reviews
-            </Link>
-          </li>
-        </ul>
+        <div className={css.movieCard}>
+          <img
+            width="300"
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : 'https://wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg'
+            }
+            alt={title || name}
+            className={css.poster}
+          />
+          <div className={css.movieInfo}>
+            <h2>{title || name}</h2>
+            <p>User Score: {Math.round(vote_average * 10)}%</p>
+            <h3>Overview</h3>
+            <p className={css.overview}>{overview}</p>
+            <h4>Genres</h4>
+            <p>{getGenres()}</p>
+          </div>
+        </div>
+        <div className={css.addInfo}>
+          <h4>Additional information</h4>
+          <ul>
+            <li>
+              <StyledLink
+                to="cast"
+                state={location.state}
+                className={css.addInfoItem}
+              >
+                Cast
+              </StyledLink>
+            </li>
+            <li>
+              <StyledLink
+                to="reviews"
+                state={location.state}
+                className={css.addInfoItem}
+              >
+                Reviews
+              </StyledLink>
+            </li>
+          </ul>
+        </div>
         <Outlet />
       </>
     );

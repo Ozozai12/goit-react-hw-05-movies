@@ -13,11 +13,30 @@
   color: white;
 }
 
-.poster {
+.movieCard {
+  display: flex;
   margin-top: 25px;
-  margin-bottom: 15px;
+}
+
+.movieInfo {
+  padding-top: 15px;
+  padding-left: 15px;
 }
 
 .overview {
   width: 500px;
+}
+
+.addInfo {
+  padding-top: 15px;
+}
+
+.addInfoItem {
+  text-decoration: none;
+  color: black;
+}
+
+.addInfoItem:hover {
+  text-decoration: underline;
+  color: tomato;
 }
