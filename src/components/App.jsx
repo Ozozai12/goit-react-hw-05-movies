@@ -12,6 +12,7 @@ const Home = lazy(() => import('./Home/Home'));
 const MovieItem = lazy(() => import('./MovieItem/MovieItem'));
 const CastInfo = lazy(() => import('./CastInfo/CastInfo'));
 const ReviewInfo = lazy(() => import('./ReviewInfo/ReviewInfo'));
+const NotFound = lazy(() => import('./NotFound/NotFound'));
 
 export const App = () => {
   const [trends, setTrends] = useState([]);
@@ -41,6 +42,7 @@ export const App = () => {
               <Route index path="reviews" element={<ReviewInfo />} />
             </Route>
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Suspense>
