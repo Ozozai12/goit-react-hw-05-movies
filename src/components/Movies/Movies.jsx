@@ -6,7 +6,7 @@ import css from './Movies.module.css';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-export const Movies = () => {
+const Movies = () => {
   const [input, setInput] = useState('');
   const [query, setQuery] = useState('');
   const [movieList, setMovieList] = useState([]);
@@ -60,9 +60,6 @@ export const Movies = () => {
         </button>
       </form>
 
-      {movieList.length === 0 && query !== '' && (
-        <p>We cannot find any movie called "{query}" :(</p>
-      )}
       <ul>
         {movieList.map(movie => {
           return (
@@ -81,3 +78,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

@@ -7,7 +7,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-export const MovieItem = () => {
+const MovieItem = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -88,3 +88,5 @@ export const MovieItem = () => {
     );
   }
 };
+
+export default MovieItem;

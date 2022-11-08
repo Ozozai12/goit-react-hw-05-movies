@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from './Home.module.css';
 
-export const Home = ({ trends }) => {
+const Home = ({ trends }) => {
   const location = useLocation();
   return (
     <>
@@ -24,3 +24,5 @@ export const Home = ({ trends }) => {
     </>
   );
 };
+
+export default Home;

@@ -5,7 +5,7 @@ import css from './CastInfo.module.css';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-export const CastInfo = () => {
+const CastInfo = () => {
   const [credits, setCredits] = useState(null);
   const { movieId } = useParams();
 
@@ -55,3 +55,5 @@ export const CastInfo = () => {
     <p>There are no information about cast.</p>
   );
 };
+
+export default CastInfo;

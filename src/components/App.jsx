@@ -1,15 +1,17 @@
-import { Layout } from './Layout/Layout';
 import { Routes, Route } from 'react-router-dom';
-import { Movies } from './Movies/Movies';
-import { Home } from './Home/Home';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { MovieItem } from './MovieItem/MovieItem';
-import { CastInfo } from './CastInfo/CastInfo';
-import { ReviewInfo } from './ReviewInfo/ReviewInfo';
+import { lazy, Suspense } from 'react';
 import css from './App.module.css';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+
+const Layout = lazy(() => import('./Layout/Layout'));
+const Movies = lazy(() => import('./Movies/Movies'));
+const Home = lazy(() => import('./Home/Home'));
+const MovieItem = lazy(() => import('./MovieItem/MovieItem'));
+const CastInfo = lazy(() => import('./CastInfo/CastInfo'));
+const ReviewInfo = lazy(() => import('./ReviewInfo/ReviewInfo'));
 
 export const App = () => {
   const [trends, setTrends] = useState([]);
@@ -28,17 +30,19 @@ export const App = () => {
   }, []);
 
   return (
-    <div className={css.section}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home trends={trends} />} />
-          <Route path="movies" element={<Movies />} />
-          <Route path="movies/:movieId" element={<MovieItem />}>
-            <Route index path="cast" element={<CastInfo />} />
-            <Route index path="reviews" element={<ReviewInfo />} />
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className={css.section}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home trends={trends} />} />
+            <Route path="movies" element={<Movies />} />
+            <Route path="movies/:movieId" element={<MovieItem />}>
+              <Route index path="cast" element={<CastInfo />} />
+              <Route index path="reviews" element={<ReviewInfo />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </div>
+        </Routes>
+      </div>
+    </Suspense>
   );
 };

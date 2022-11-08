@@ -1,8 +1,7 @@
 import css from './Header.module.css';
-
 import { StyledLink } from './Header.styled';
 
-export const Header = () => {
+const Header = () => {
   return (
     <nav className={css.header}>
       <StyledLink to="/" className={css.navigation}>
@@ -14,3 +13,5 @@ export const Header = () => {
     </nav>
   );
 };
+
+export default Header;

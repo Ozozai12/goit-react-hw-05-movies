@@ -5,7 +5,7 @@ import css from './ReviewInfo.module.css';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-export const ReviewInfo = () => {
+const ReviewInfo = () => {
   const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
 
@@ -45,3 +45,5 @@ export const ReviewInfo = () => {
     <p>There are no reviews at the moment.</p>
   );
 };
+
+export default ReviewInfo;
