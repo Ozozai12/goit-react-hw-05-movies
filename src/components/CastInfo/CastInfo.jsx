@@ -27,7 +27,7 @@ export const CastInfo = () => {
   }
 
   return credits.length > 0 ? (
-    <ul>
+    <ul className={css.castList}>
       {credits.map(credit => {
         return (
           <li key={credit.id} className={css.castItem}>
@@ -39,11 +39,14 @@ export const CastInfo = () => {
                   : 'https://wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg'
               }
               alt={credit.name || credit.original_name}
+              className={css.castPhoto}
             />
             <span className={css.castName}>
               <b>{credit.name || credit.original_name}</b>
             </span>
-            <span className={css.castChar}>Character: {credit.character}</span>
+            <span className={css.castChar}>
+              Character: <i>{credit.character}</i>
+            </span>
           </li>
         );
       })}

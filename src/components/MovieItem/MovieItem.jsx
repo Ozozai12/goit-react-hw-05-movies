@@ -39,6 +39,7 @@ export const MovieItem = () => {
         <Link to={backLink} className={css.backLink}>
           <span className={css.backText}>Go back</span>
         </Link>
+
         <div className={css.movieCard}>
           <img
             width="300"

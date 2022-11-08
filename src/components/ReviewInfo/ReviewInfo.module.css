@@ -1,3 +1,5 @@
 .reviewItem {
   margin-left: 15px;
+  list-style: circle;
+  max-width: 1300px;
 }

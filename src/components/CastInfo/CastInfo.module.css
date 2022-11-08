@@ -1,6 +1,14 @@
+.castList {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
 .castItem {
-  margin-left: 15px;
-  margin-bottom: 15px;
+  /* margin-left: 15px;
+  margin-bottom: 15px; */
+  max-width: 150px;
+  list-style: none;
 }
 
 .castName {
@@ -11,4 +19,10 @@
 .castChar {
   display: block;
   margin-top: 8px;
+}
+
+.castPhoto {
+  width: 150px;
+  height: 225px;
+  object-fit: contain;
 }

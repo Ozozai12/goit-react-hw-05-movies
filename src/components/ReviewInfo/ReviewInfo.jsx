@@ -31,8 +31,12 @@ export const ReviewInfo = () => {
       {reviews.map(review => {
         return (
           <li key={review.id} className={css.reviewItem}>
-            <p>{review.author}</p>
-            <p>"{review.content}"</p>
+            <p>
+              <b>{review.author}</b>
+            </p>
+            <p>
+              <i>"{review.content}"</i>
+            </p>
           </li>
         );
       })}
