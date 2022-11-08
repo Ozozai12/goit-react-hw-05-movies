@@ -11,6 +11,7 @@ export const Movies = () => {
   const [query, setQuery] = useState('');
   const [movieList, setMovieList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+
   const location = useLocation();
   const searchQuery = searchParams.get('query') ?? '';
 
@@ -58,6 +59,10 @@ export const Movies = () => {
           Search
         </button>
       </form>
+
+      {movieList.length === 0 && query !== '' && (
+        <p>We cannot find any movie called "{query}" :(</p>
+      )}
       <ul>
         {movieList.map(movie => {
           return (
